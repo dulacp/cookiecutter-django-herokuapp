@@ -1,0 +1,36 @@
+## Byte-compiled
+__pycache__/
+*.py[cod]
+*.egg-info
+/dist/
+/build/
+
+## Database
+*.sqlite3
+
+## Translations
+*.mo
+
+## Media files & Collected static files
+static/
+media/
+
+## Testing
+.coverage
+.noseids
+coverage.xml
+violations.txt
+nosetests.xml
+/htmlcov/*
+
+## Sass
+.sass-cache/
+
+## Gulp
+.tmp/
+
+## Npm modules
+node_modules/
+
+## Env
+.env

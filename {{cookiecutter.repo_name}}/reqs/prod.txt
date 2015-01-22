@@ -1,0 +1,15 @@
+-r common.txt
+
+# Server
+waitress>=0.8,<0.9
+
+# Amazon S3
+# when the changes are included pypi versions will be used
+-e git+git://github.com/boto/boto.git@develop#egg=boto
+-e git+git://github.com/jschneier/django-storages-redux.git@master#egg=django-storages
+
+# Monitoring
+newrelic>=2.32,<2.33
+
+# Exceptions
+raven>=4

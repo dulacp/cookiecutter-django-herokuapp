@@ -1,0 +1,20 @@
+Django>=1.7,<1.8
+
+# Database
+dj-database-url>=0.3,<0.4
+psycopg2>=2.5,<2.6
+
+# Bower is used for the assets dependencies
+django-bower>=5.0,<5.1
+
+# A better static files server
+dj-static==0.0.6
+
+# Internationalization
+Babel>=1.3,<1.4
+
+# Time zones support
+pytz==2014.10
+
+
+# Your custom requirements go here

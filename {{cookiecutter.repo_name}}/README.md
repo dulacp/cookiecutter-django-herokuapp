@@ -1,0 +1,161 @@
+# {{ cookiecutter.project_name }}
+
+> Don't hesitate to put a little quote from an unknown person here.
+
+{{ cookiecutter.description }}
+
+
+## Infos utiles
+
+- Version Python : 3.4.x
+- Version Django : 1.7.x
+
+
+## Local install
+
+First create the virtualenv with the right python version
+
+```sh
+$ mkvirtualenv {{ cookiecutter.repo_name }} --python=$(which python3)
+$ workon {{ cookiecutter.repo_name }}
+```
+
+Install the dependencies
+
+```sh
+$ pip install -r reqs/dev.txt
+$ npm install
+```
+
+Create the local database
+
+```sh
+$ createdb {{ cookiecutter.repo_name }}
+$ ./manage.py migrate
+```
+
+Now you just need to launch the watcher for the style files, and it will run the django dev server too :
+
+```sh
+$ gulp launch
+```
+
+> If you want a specific port, you can use the `--port` option : `$ gulp launch --port 8005`
+
+
+## Deploy the beast
+
+### Prepare the static server
+
+#### create a new user
+
+```sh
+$ aws iam create-user --user-name {{ cookiecutter.aws_s3_user_name }}
+```
+
+**output**
+```json
+{
+    "User": {
+        "UserName": "{{ cookiecutter.aws_s3_user_name }}", 
+        "Path": "/", 
+        "CreateDate": "2015-01-22T14:10:08.058Z", 
+        "UserId": "<user_id>", 
+        "Arn": "arn:aws:iam::<user_arn_id>:user/{{ cookiecutter.aws_s3_user_name }}"
+    }
+}
+```
+
+#### give the user some access keys
+
+```sh
+$ aws iam create-access-key --user-name {{ cookiecutter.aws_s3_user_name }}
+```
+
+**output**
+```json
+{
+    "AccessKey": {
+        "UserName": "{{ cookiecutter.aws_s3_user_name }}", 
+        "Status": "Active", 
+        "CreateDate": "2015-01-22T14:18:56.237Z", 
+        "SecretAccessKey": "<secret_key>", 
+        "AccessKeyId": "<access_key>"
+    }
+}
+```
+
+Write down the `<secret_key>` and `<access_key>` values, so that we can give the values to the heroku app.
+
+#### create the aws bucket
+
+```sh
+$ aws s3 mb s3://{{ cookiecutter.aws_s3_bucket_name }} --region eu-west-1
+```
+
+#### give the user access to the created bucket
+
+```sh
+$ aws iam put-user-policy --user-name {{ cookiecutter.aws_s3_user_name }} --policy-name AmazonS3FullAccess-{{ cookiecutter.aws_s3_user_name }} --policy-document '{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "s3:*",
+      "Resource": [
+        "arn:aws:s3:::{{ cookiecutter.aws_s3_bucket_name }}",
+        "arn:aws:s3:::{{ cookiecutter.aws_s3_bucket_name }}/*"
+      ]
+    }
+  ]
+}'
+```
+
+
+### Deploy the app
+
+Lancer les commandes dans l'ordre ci-dessous:
+
+```sh
+$ heroku create --region eu {{ cookiecutter.repo_name }}
+$ heroku addons:add heroku-postgresql:hobby-dev
+$ heroku config:set DJANGO_SETTINGS_MODULE="{{ cookiecutter.repo_name }}.settings.prod"
+$ heroku config:set SECRET_KEY=`openssl rand -base64 32`
+$ heroku config:set LOCAL_SERVER=0
+$ heroku config:set DISABLE_COLLECTSTATIC=1
+$ heroku config:set AWS_STORAGE_BUCKET_NAME={{ cookiecutter.repo_name }} AWS_S3_ACCESS_KEY_ID="<access_key>" AWS_S3_SECRET_ACCESS_KEY="<secret_key>"
+$ git push heroku master
+$ ./manage.py collectstatic --noinput
+$ aws s3 sync --acl public-read {{ cookiecutter.repo_name }}/static s3://{{ cookiecutter.aws_s3_bucket_name }}/static/
+$ heroku run python manage.py migrate
+$ heroku run python manage.py createsuperuser
+$ heroku open
+```
+
+And you're done !
+
+
+## Cheatsheet
+
+I've defined some shortcuts in the `Makefile`, feel free to explore those or add yours.
+
+_**d**eploy to **p**roduction_
+```sh
+$ make dp
+```
+
+_**d**eploy & **m**igrate to **p**roduction_
+```sh
+$ make dmp
+```
+
+_**c**ollectstatic to **p**roduction_
+```sh
+$ make cp
+```
+
+
+## Contact
+
+[Pierre Dulac](http://github.com/dulaccc)  
+[@dulaccc](https://twitter.com/dulaccc)

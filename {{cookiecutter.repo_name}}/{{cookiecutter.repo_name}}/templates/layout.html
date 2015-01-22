@@ -1,0 +1,18 @@
+{% raw %}{% extends "base.html" %}
+
+{% block maincontent %}
+<div class="wrapper">
+
+    {% block content %}
+    <h1>Hello world</h1>
+    <p>Yeah! you've got it running. Congrats.</p>
+    {% endblock content %}
+
+</div>
+
+<footer class="page-foot">
+    <p class="wrapper">
+        &copy; {% now "Y" %} | legal terms | contact
+    </p>
+</footer>
+{% endblock maincontent %}{% endraw %}

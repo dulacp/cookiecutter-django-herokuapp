@@ -1,0 +1,13 @@
+{
+    "project_name": "project_name is the title of the project.",
+    "repo_name": "{{ cookiecutter.project_name.lower()|replace(' ', '_') }}",
+    "aws_s3_user_name": "heroku-{{ cookiecutter.repo_name }}",
+    "aws_s3_bucket_name": "{{ cookiecutter.repo_name }}",
+    "author_name": "Your Name",
+    "email": "Your email",
+    "description": "A short description of the project.",
+    "domain_name": "example.com",
+    "version": "0.1.0",
+    "now": "2015/01/13",
+    "year": "{{ cookiecutter.now[:4] }}"
+}
