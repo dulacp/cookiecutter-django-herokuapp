@@ -1,6 +1,6 @@
 # cookiecutter-django-herokuapp
 
-A [cookiecutter](https://github.com/audreyr/cookiecutter) template for Django that is *really* optimized for running on Heroku.
+A [cookiecutter](https://github.com/audreyr/cookiecutter) template for Django 1.7+ / Python 3 only, that is *really* optimized for running on Heroku.
 
 [![Build status](https://travis-ci.org/dulaccc/cookiecutter-django-herokuapp.svg?branch=master)](https://travis-ci.org/dulaccc/cookiecutter-django-herokuapp?branch=master)
 
