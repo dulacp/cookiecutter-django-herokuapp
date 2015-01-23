@@ -102,13 +102,13 @@ LOGGING = {
     },
     "loggers": {
         "django": {
-            "handlers": ["console"], #"null"
+            "handlers": ["console"],  # "null"
             "propagate": True,
             "level": "WARNING",
         },
         "django.request": {
             "handlers": ["console", "sentry"],
-            "level": "WARNING", #"ERROR"
+            "level": "WARNING",  # "ERROR"
             "propagate": False,
         },
         "django.db.backends": {
