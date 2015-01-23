@@ -7,9 +7,9 @@ A [cookiecutter](https://github.com/audreyr/cookiecutter) template for Django th
 
 ## Concept
 
-It tries to be minimalistic, I mean no choice are made for you concerning : 
+I tried to be minimalistic, I mean no choice has been made concerning : 
 - **the css library**, specify which one you want in the bower.json file
-- **external django apps**, I don't see the point to choose for you ;)
+- **external django apps**, I don't see the point to choose this for you ;)
 
 In fact the only choice made here is deploying on Heroku, well in fact deploying on a [Twelve-Factor App Plateform](http://12factor.net/).
 
@@ -24,12 +24,12 @@ This cookiecutter template uses features that exists only in cookiecutter 0.9.0 
 
 - Python 3 only, sorry guys but I had to move on...
 - For [Django 1.7](https://docs.djangoproject.com/en/1.7/)
-- Procfile for deploying to Heroku
-- Heroku optimized server
-- Basic caching setup
+- Heroku optimized stack
 - Gulp tasks to build the static files and support livereload
-- Static served by an Amanzon S3 instance
-- Sentry preconfigured for reporting issues (see the [sentry section](#how-to-use-a-cheap-sentry-instance) on how to setup your own instance)
+- Static served by an Amazon S3 instance
+- Sentry configuration for reporting issues (see the [sentry section](#how-to-use-a-cheap-sentry-instance) on how to setup your own instance)
+- Instructions on how to configure the Amazon S3 bucket
+- Instructions on how to deploy the app in less than 5 minutes
 
 
 ## Q&A
