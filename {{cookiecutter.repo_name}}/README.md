@@ -114,10 +114,13 @@ $ aws iam put-user-policy --user-name {{ cookiecutter.aws_s3_user_name }} --poli
 
 ### Deploy the app
 
+> We need to specify the buildpack to use otherwise heroku won't know which one to choose, due to the fact that both `package.json` and `requirements.txt` files exist.
+
 Lancer les commandes dans l'ordre ci-dessous:
 
 ```sh
 $ heroku create --region eu {{ cookiecutter.repo_name }}
+$ heroku config:add BUILDPACK_URL=git://github.com/heroku/heroku-buildpack-python.git
 $ heroku addons:add heroku-postgresql:hobby-dev
 $ heroku config:set DJANGO_SETTINGS_MODULE="{{ cookiecutter.repo_name }}.settings.prod"
 $ heroku config:set SECRET_KEY=`openssl rand -base64 32`
