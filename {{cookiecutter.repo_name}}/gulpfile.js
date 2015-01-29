@@ -48,7 +48,7 @@ gulp.task('clean', function () {
 });
 
 gulp.task('watch', function () {
-    $.livereload().listen();
+    $.livereload.listen();
 
     // watch for changes
 
