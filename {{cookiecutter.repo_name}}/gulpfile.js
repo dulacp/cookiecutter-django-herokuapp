@@ -41,7 +41,7 @@ gulp.task('scripts', function () {
         .pipe($.livereload());
 });
 
-gulp.task('compile', ['styles', 'scripts']);
+gulp.task('compile', ['styles']);
 
 gulp.task('clean', function () {
     return gulp.src(['.tmp'], { read: false }).pipe($.clean());
@@ -68,6 +68,6 @@ gulp.task('serve:backend', function() {
     proc.stdout.on('data', function(data) { process.stdout.write(data); });
 });
 
-gulp.task('launch', ['watch', 'serve:backend']);
+gulp.task('launch', ['watch', 'compile', 'serve:backend']);
 
 gulp.task('default', ['launch']);
