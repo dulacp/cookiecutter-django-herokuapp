@@ -97,17 +97,36 @@ $ aws s3 mb s3://{{ cookiecutter.aws_s3_bucket_name }} --region eu-west-1
 
 ```sh
 $ aws iam put-user-policy --user-name {{ cookiecutter.aws_s3_user_name }} --policy-name AmazonS3FullAccess-{{ cookiecutter.aws_s3_user_name }} --policy-document '{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": "s3:*",
-      "Resource": [
-        "arn:aws:s3:::{{ cookiecutter.aws_s3_bucket_name }}",
-        "arn:aws:s3:::{{ cookiecutter.aws_s3_bucket_name }}/*"
-      ]
-    }
-  ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket",
+                "s3:GetBucketLocation",
+                "s3:ListBucketMultipartUploads"
+            ],
+            "Resource": "arn:aws:s3:::{{ cookiecutter.aws_s3_bucket_name }}",
+            "Condition": {}
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:AbortMultipartUpload",
+                "s3:DeleteObject",
+                "s3:DeleteObjectVersion",
+                "s3:GetObject",
+                "s3:GetObjectAcl",
+                "s3:GetObjectVersion",
+                "s3:GetObjectVersionAcl",
+                "s3:PutObject",
+                "s3:PutObjectAcl",
+                "s3:PutObjectAclVersion"
+            ],
+            "Resource": "arn:aws:s3:::{{ cookiecutter.aws_s3_bucket_name }}/*",
+            "Condition": {}
+        }
+    ]
 }'
 ```
 
