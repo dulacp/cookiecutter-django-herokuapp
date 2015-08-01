@@ -57,7 +57,7 @@ gulp.task('watch', function () {
         rootDir + 'assets/styles/**/*.css',
         rootDir + 'assets/scripts/**/*.js',
         rootDir + 'assets/images/**/*'
-    ]);
+    ], $.livereload.reload);
 
     gulp.watch(rootDir + 'assets/styles/**/*.scss', ['styles']);
 });
