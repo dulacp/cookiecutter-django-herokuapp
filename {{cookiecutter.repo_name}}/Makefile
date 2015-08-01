@@ -9,7 +9,7 @@ clean:
 todo:
 	# Look for areas of the code that need updating when some event has taken place
 	grep --exclude-dir=components -rnH TODO reqs
-	grep --exclude-dir=components -rnH TODO renover
+	grep --exclude-dir=components -rnH TODO {{ cookiecutter.repo_name }}
 	grep --exclude-dir=components -rnH TODO tests
 
 
@@ -38,7 +38,7 @@ migrate_production:
 
 collectstatic_production:
 	./manage.py collectstatic --noinput
-	aws s3 sync --acl public-read renover/static s3://renover-immo/static/
+	aws s3 sync --acl public-read {{ cookiecutter.repo_name }}/static s3://{{ aws_s3_bucket_name }}/static/
 
 # shortcuts for deploy to the production
 dp: deploy_production
