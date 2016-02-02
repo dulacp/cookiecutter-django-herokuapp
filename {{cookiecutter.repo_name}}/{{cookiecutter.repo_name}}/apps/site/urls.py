@@ -5,6 +5,7 @@ from django.views import generic
 
 from . import views
 
+
 urlpatterns = (
     url(r'^robots\.txt$', views.RobotsView.as_view(), name="robots"),
 )
