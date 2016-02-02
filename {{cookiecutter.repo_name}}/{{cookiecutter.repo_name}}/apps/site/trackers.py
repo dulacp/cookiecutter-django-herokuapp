@@ -28,14 +28,16 @@ def get_client_from_request(http_request):
         return generate_default_client_id()
 
     if not cookie_value.startswith('G'):
-        logger.warning("The user google analytics cookie doesn't respect the expected format `G*`: '{}'".format(cookie_value))
+        logger.warning("The user google analytics cookie doesn't respect the expected "
+                       "format `G*`: '{}'".format(cookie_value))
         return generate_default_client_id()
 
     # parse the client id
     parts = cookie_value.split('.')
 
     if len(parts) != 4:
-        logger.warning("The user google analytics cookie doesn't respect the expected format: '{}'".format(cookie_value))
+        logger.warning("The user google analytics cookie doesn't respect the expected "
+                       "format: '{}'".format(cookie_value))
         return generate_default_client_id()
 
     client_id = ".".join(parts[-2:])  # restore the last two digits
