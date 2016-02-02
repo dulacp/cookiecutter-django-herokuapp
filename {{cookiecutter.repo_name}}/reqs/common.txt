@@ -16,5 +16,8 @@ pytz==2014.10
 # Better tags
 django-classy-tags>=0.6,<0.7
 
+# Markdown
+Markdown>=2.6,<2.7
+
 
 # Your custom requirements go here
