@@ -43,7 +43,7 @@ ALLOWED_HOSTS = (
 
 # use Amazon S3 for storage for uploaded media files and static files
 DEFAULT_FILE_STORAGE = 'libs.s3_storages.MediaRootS3BotoStorage'
-STATICFILES_STORAGE = 'libs.s3_storages.StaticRootS3BotoStorage'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
 # Amazon S3
