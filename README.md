@@ -27,7 +27,6 @@ This cookiecutter template uses features that exists only in cookiecutter 0.9.0 
 - Heroku optimized stack
 - Gulp tasks to build the static files and support livereload
 - Static served by `whitenoise` from the django app (advice to setup a cache instance above like CloudFlare)
-- Sentry configuration for reporting issues (see the [sentry section](#how-to-use-a-cheap-sentry-instance) on how to setup your own instance)
 - Instructions on how to configure the Amazon S3 bucket
 - Instructions on how to deploy the app in less than 5 minutes
 
@@ -36,9 +35,6 @@ This cookiecutter template uses features that exists only in cookiecutter 0.9.0 
 
 #### Why using `waitress` as the production server
 > Gunicorn is actually designed to be used behing a buffering reverse proxy (e.g. nginx). In other words, without this buffering reverse proxy you expose your production server to a *slow network* attacks. If you want to dig on this particular topic, read the great article of @etianen *[Don't use Gunicorn to host your Django sites on Heroku](http://blog.etianen.com/blog/2014/01/19/gunicorn-heroku-django/)*
-
-#### How to use a cheap sentry instance
-> Deploy yours ! Check out the [sentry](https://github.com/dulaccc/sentry) project and you'll get in less than 10 minutes a private instance of the Sentry exception logger server.
 
 
 ## Usage
