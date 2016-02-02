@@ -96,7 +96,7 @@ $ aws s3 mb s3://{{ cookiecutter.aws_s3_bucket_name }} --region eu-west-1
 #### give the bucket content public read
 
 ```sh
-$ aws s3 put-bucket-policy --bucket {{ cookiecutter.aws_s3_bucket_name }} --policy '{
+$ aws s3api put-bucket-policy --bucket {{ cookiecutter.aws_s3_bucket_name }} --policy '{
     "Version": "2012-10-17",
     "Statement": [
         {
