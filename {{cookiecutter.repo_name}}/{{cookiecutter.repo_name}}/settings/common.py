@@ -2,10 +2,10 @@
 Django settings for {{ cookiecutter.repo_name }} project.
 
 For more information on this file, see
-https://docs.djangoproject.com/en/1.7/topics/settings/
+https://docs.djangoproject.com/en/1.9/topics/settings/
 
 For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.7/ref/settings/
+https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 from os.path import dirname, join, abspath
@@ -20,7 +20,7 @@ sys.path.append(BASE_DIR)
 SITE_ID = 1
 
 # Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
+# See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'bxCSwKnojzzwAQWVIWx7/wgBUZpn45e+8kwmLV4coEM='
@@ -68,7 +68,7 @@ WSGI_APPLICATION = 'wsgi.application'
 
 
 # Templates
-# https://docs.djangoproject.com/en/1.7/ref/settings/#template-context-processors
+# https://docs.djangoproject.com/en/1.9/ref/settings/#template-context-processors
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.debug',
@@ -80,20 +80,20 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
 )
 
-# See: https://docs.djangoproject.com/en/1.7/ref/settings/#template-loaders
+# See: https://docs.djangoproject.com/en/1.9/ref/settings/#template-loaders
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 )
 
-# See: https://docs.djangoproject.com/en/1.7/ref/settings/#template-dirs
+# See: https://docs.djangoproject.com/en/1.9/ref/settings/#template-dirs
 TEMPLATE_DIRS = (
     join(BASE_DIR, 'templates'),
 )
 
 
 # Database
-# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
+# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -103,7 +103,7 @@ DATABASES = {
 }
 
 # Internationalization
-# https://docs.djangoproject.com/en/1.7/topics/i18n/
+# https://docs.djangoproject.com/en/1.9/topics/i18n/
 
 LANGUAGE_CODE = 'en-en'
 
@@ -117,12 +117,12 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.7/howto/static-files/
+# https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
 STATIC_ROOT = join(BASE_DIR, 'static')
 
-# See: https://docs.djangoproject.com/en/1.7/ref/contrib/staticfiles\
+# See: https://docs.djangoproject.com/en/1.9/ref/contrib/staticfiles\
 #      /#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = (
     join(BASE_DIR, 'assets'),

@@ -8,7 +8,7 @@
 ## Infos utiles
 
 - Version Python : 3.4.x
-- Version Django : 1.7.x
+- Version Django : 1.9.x
 
 
 ## Local install

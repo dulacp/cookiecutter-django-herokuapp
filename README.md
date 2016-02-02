@@ -1,6 +1,6 @@
 # cookiecutter-django-herokuapp
 
-A [cookiecutter](https://github.com/audreyr/cookiecutter) template for Django 1.7+ / Python 3 only, that is *really* optimized for running on Heroku.
+A [cookiecutter](https://github.com/audreyr/cookiecutter) template for Django 1.9+ / Python 3 only, that is *really* optimized for running on Heroku.
 
 [![Build status](https://travis-ci.org/dulaccc/cookiecutter-django-herokuapp.svg?branch=master)](https://travis-ci.org/dulaccc/cookiecutter-django-herokuapp?branch=master)
 
@@ -23,7 +23,7 @@ This cookiecutter template uses features that exists only in cookiecutter 0.9.0 
 ---------
 
 - Python 3 only, sorry guys but I had to move on...
-- For [Django 1.7](https://docs.djangoproject.com/en/1.7/)
+- For [Django 1.9](https://docs.djangoproject.com/en/1.9/)
 - Heroku optimized stack
 - Gulp tasks to build the static files and support livereload
 - Static served by an Amazon S3 instance

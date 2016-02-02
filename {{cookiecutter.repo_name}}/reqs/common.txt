@@ -1,4 +1,4 @@
-Django>=1.7,<1.8
+Django>=1.9,<1.10
 
 # Database
 dj-database-url>=0.3,<0.4
