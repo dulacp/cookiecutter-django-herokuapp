@@ -160,7 +160,8 @@ $ aws iam put-user-policy --user-name {{ cookiecutter.aws_s3_user_name }} --poli
 Lancer les commandes dans l'ordre ci-dessous:
 
 ```sh
-$ heroku create --region eu {{ cookiecutter.repo_name }}
+$ git init
+$ heroku create --region eu {{ cookiecutter.heroku_app_name }}
 $ heroku config:add BUILDPACK_URL=git://github.com/heroku/heroku-buildpack-python.git
 $ heroku addons:add heroku-postgresql:hobby-dev
 $ heroku addons:add newrelic:wayne

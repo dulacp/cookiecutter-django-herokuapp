@@ -6,7 +6,8 @@
     "author_name": "Your Name",
     "email": "Your email",
     "description": "A short description of the project.",
-    "domain_name": "example.com",
+    "heroku_app_name": "{{ repo_name }}",
+    "domain_name": "{{ heroku_app_name }}.herokuapp.com",
     "version": "0.1.0",
     "now": "2015/01/13",
     "year": "{{ cookiecutter.now[:4] }}"
