@@ -17,14 +17,9 @@ todo:
 
 install:
 	pip install -r reqs/dev.txt
-	make prepare_assets
 
 upgrade:
 	pip install --upgrade -r reqs/dev.txt
-	make prepare_assets
-
-prepare_assets:
-	python manage.py bower install
 
 
 ## Deployment

@@ -45,8 +45,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.formtools',
     'django.contrib.sites',
-
-    'djangobower',
+    'django.contrib.sites',
 
     'libs',
     'apps.site',
@@ -132,8 +131,6 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-
-    'djangobower.finders.BowerFinder',
 )
 
 
@@ -141,17 +138,6 @@ STATICFILES_FINDERS = (
 
 MEDIA_ROOT = join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-
-
-# Bower components
-
-BOWER_COMPONENTS_ROOT = abspath(join(BASE_DIR, 'components'))
-
-BOWER_INSTALLED_APPS = {
-    'modernizr#2.6.2',
-    'HTML5-Reset#2.1.2',
-    'jquery#2.1.1',
-}
 
 
 # Third party migratiosn

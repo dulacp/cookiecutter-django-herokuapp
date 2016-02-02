@@ -4,9 +4,6 @@ Django>=1.9,<1.10
 dj-database-url>=0.3,<0.4
 psycopg2>=2.5,<2.6
 
-# Bower is used for the assets dependencies
-django-bower>=5.0,<5.1
-
 # A better static files server
 dj-static==0.0.6
 

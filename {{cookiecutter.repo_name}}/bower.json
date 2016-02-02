@@ -1,0 +1,14 @@
+{
+  "name": "{{cookiecutter.repo_name}}",
+  "private": true,
+  "dependencies": {
+    "HTML5-Reset": "~2.1.2",
+    "jquery": "~2.1.1",
+  },
+  "devDependencies": {},
+  "overrides": {
+    "jquery": {
+      "main": "dist/jquery.min.js"
+    }
+  }
+}
