@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'djangobower',
 
     'libs',
+    'apps.site',
     'apps.promotion',
 )
 

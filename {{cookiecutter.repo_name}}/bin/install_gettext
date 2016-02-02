@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+indent() {
+    RE="s/^/       /"
+    [ $(uname) == "Darwin" ] && sed -l "$RE" || sed -u "$RE"
+}
+
+VENDOR_GETTEXT=https://nomiemarket.s3-eu-west-1.amazonaws.com/heroku/gettext-0.19.6-heroku.tar.gz
+
+echo "-----> Installing gettext..."
+
+if [ -f ".heroku/vendor/bin/msgfmt" ]; then
+    echo "already installed" | indent
+else
+    mkdir -p .heroku/vendor
+    curl $VENDOR_GETTEXT -s | tar zxv -C .heroku/vendor &> /dev/null
+    echo "done" | indent
+fi
