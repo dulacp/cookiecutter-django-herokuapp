@@ -35,7 +35,7 @@ INSTALLED_APPS = INSTALLED_APPS + (
 # Security
 
 ALLOWED_HOSTS = (
-    '{{ cookiecutter.repo_name }}.herokuapp.com',
+    '{{ cookiecutter.domain_name }}',
 )
 
 
