@@ -9,4 +9,4 @@ waitress>=0.8,<0.9
 -e git+git://github.com/jschneier/django-storages-redux.git@master#egg=django-storages
 
 # Monitoring
-newrelic>=2.32,<2.33
+newrelic==2.58.1.44
