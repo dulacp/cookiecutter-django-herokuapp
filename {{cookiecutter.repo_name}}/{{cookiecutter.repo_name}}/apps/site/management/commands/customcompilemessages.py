@@ -72,9 +72,8 @@ class Command(BaseCommand):
         basedirs = set(map(os.path.abspath, filter(os.path.isdir, basedirs)))
 
         if not basedirs:
-            raise CommandError("This script should be run from the Django Git "
-                               "checkout or your project or app tree, or with "
-                               "the settings module specified.")
+            self.stdout.write('No locales')
+            return
 
         # Build locale list
         all_locales = []
