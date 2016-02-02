@@ -145,11 +145,8 @@ $ heroku addons:add newrelic:wayne
 $ heroku config:set DJANGO_SETTINGS_MODULE="{{ cookiecutter.repo_name }}.settings.prod"
 $ heroku config:set SECRET_KEY=`openssl rand -base64 32`
 $ heroku config:set LOCAL_SERVER=0
-$ heroku config:set DISABLE_COLLECTSTATIC=1
 $ heroku config:set AWS_STORAGE_BUCKET_NAME={{ cookiecutter.aws_s3_bucket_name }} AWS_S3_ACCESS_KEY_ID="<access_key>" AWS_S3_SECRET_ACCESS_KEY="<secret_key>"
 $ git push heroku master
-$ ./manage.py collectstatic --noinput
-$ aws s3 sync --acl public-read {{ cookiecutter.repo_name }}/static s3://{{ cookiecutter.aws_s3_bucket_name }}/static/
 $ heroku run python manage.py migrate
 $ heroku run python manage.py createsuperuser
 $ heroku open

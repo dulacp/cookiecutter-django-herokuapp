@@ -26,7 +26,7 @@ This cookiecutter template uses features that exists only in cookiecutter 0.9.0 
 - For [Django 1.9](https://docs.djangoproject.com/en/1.9/)
 - Heroku optimized stack
 - Gulp tasks to build the static files and support livereload
-- Static served by an Amazon S3 instance
+- Static served by `whitenoise` from the django app (advice to setup a cache instance above like CloudFlare)
 - Sentry configuration for reporting issues (see the [sentry section](#how-to-use-a-cheap-sentry-instance) on how to setup your own instance)
 - Instructions on how to configure the Amazon S3 bucket
 - Instructions on how to deploy the app in less than 5 minutes
