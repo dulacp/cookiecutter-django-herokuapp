@@ -163,8 +163,8 @@ Lancer les commandes dans l'ordre ci-dessous:
 $ git init
 $ heroku create --region eu {{ cookiecutter.heroku_app_name }}
 $ heroku config:add BUILDPACK_URL=git://github.com/heroku/heroku-buildpack-python.git
-$ heroku addons:add heroku-postgresql:hobby-dev
-$ heroku addons:add newrelic:wayne
+$ heroku addons:create heroku-postgresql:hobby-dev
+$ heroku addons:create newrelic:wayne
 $ heroku config:set DJANGO_SETTINGS_MODULE="{{ cookiecutter.repo_name }}.settings.prod"
 $ heroku config:set SECRET_KEY=`openssl rand -base64 32`
 $ heroku config:set LOCAL_SERVER=0
