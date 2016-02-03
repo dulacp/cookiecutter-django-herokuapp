@@ -1,28 +1,13 @@
-import os
-import uuid
-import datetime
-import random
-import hashlib
 import copy
+import datetime
 import decimal
+import hashlib
+import os.path
+import random
+import uuid
 
-from django.conf import settings
-from django.contrib.sites.models import Site
-
-
-def canonical_url(url, protocol=None):
-    """
-    Ensure that the url contains the `http://mysite.com` part,
-    particularly for requests made on the local dev server
-    """
-    if not url.startswith('http'):
-        current_site = Site.objects.get(id=settings.SITE_ID)
-        url = "{}//{}".format(
-            protocol if protocol else "",
-            os.path.join(current_site.domain, url.lstrip('/')))
-    else:
-        url = url.replace('http://', '%s//' % protocol).replace('https://', '%s//' % protocol)
-    return url
+from django.utils.deconstruct import deconstructible
+from django.utils.encoding import force_str
 
 
 def banker_round(decimal_value):
@@ -71,18 +56,21 @@ def nested_hash(data):
     return hash(tuple(frozenset(sorted(new_data.items()))))
 
 
-def unique_filename(path):
-    """
-    Return a unique filename, which is usefull for image upload for instance
-    """
-    def _unique_path(obj, name):
-        parts = name.split('.')
+@deconstructible
+class UniqueFilename(object):
+
+    def __init__(self, sub_path, original_filename_field=None):
+        self.sub_path = sub_path
+        self.original_filename_field = original_filename_field
+
+    def __call__(self, instance, filename):
+        if self.original_filename_field and hasattr(instance, self.original_filename_field):
+            setattr(instance, self.original_filename_field, filename)
+        parts = filename.split('.')
         extension = parts[-1]
-        directory_path = os.path.normpath(
-            datetime.datetime.now().strftime(path))
+        directory_path = os.path.normpath(datetime.datetime.now().strftime(force_str(self.sub_path)))
         unique_name = "{0}.{1}".format(uuid.uuid4(), extension)
         return os.path.join(directory_path, unique_name)
-    return _unique_path
 
 
 def queryset_iterator(queryset, chunksize=1000, reverse=False):
@@ -106,3 +94,13 @@ def queryset_iterator(queryset, chunksize=1000, reverse=False):
         if row is not None:
             last_pk = row.pk
             new_items = True
+
+
+def dict_match_items(a, b):
+    shared_items = set(a.items()) & set(b.items())
+    return shared_items
+
+
+def dict_unmatch_items(a, b):
+    unmatched_items = set(a.items()) ^ set(b.items())
+    return unmatched_items
