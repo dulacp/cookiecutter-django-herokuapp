@@ -111,12 +111,6 @@ LOGGING = {
             "level": "WARNING",
         },
 
-        "sorl.thumbnail": {
-            "handlers": ["console"],
-            "propagate": False,
-            "level": "WARNING",
-        },
-
         "apps": {
             "handlers": ["console"],
             "level": "WARNING",
