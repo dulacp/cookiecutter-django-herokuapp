@@ -1,0 +1,3 @@
+{
+    "directory": "{{cookiecutter.repo_name}}/assets/bower_components"
+}
