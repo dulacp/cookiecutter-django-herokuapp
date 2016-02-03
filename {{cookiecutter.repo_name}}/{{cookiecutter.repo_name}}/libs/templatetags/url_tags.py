@@ -6,14 +6,7 @@ from django.http import QueryDict
 from classytags.core import Tag, Options
 from classytags.arguments import MultiKeywordArgument, MultiValueArgument
 
-from libs.utils import canonical_url
-
 register = template.Library()
-
-
-@register.filter('canonical')
-def _get_canonical_url(url):
-    return canonical_url(url, protocol="http:")
 
 
 class QueryParameters(Tag):
