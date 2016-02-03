@@ -4,7 +4,7 @@
 Sphinx
 
 # Debug
-django-debug-toolbar>=1.2.1,<1.3.O
+django-debug-toolbar>=1.4,<1.5
 python-dotenv>=0.1,<0.2
 
 # Testing

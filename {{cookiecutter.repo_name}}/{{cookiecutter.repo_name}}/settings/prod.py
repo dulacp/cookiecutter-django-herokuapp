@@ -8,7 +8,7 @@ import dj_database_url
 
 
 DEBUG = False
-TEMPLATE_DEBUG = False
+TEMPLATES[0]['OPTIONS']['debug'] = False
 LOCAL_SERVER = bool(int(environ.get('LOCAL_SERVER', '1')))
 
 # load local .env
