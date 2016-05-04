@@ -33,7 +33,7 @@ migrate_production:
 
 collectstatic_production:
 	./manage.py collectstatic --noinput
-	aws s3 sync {{ cookiecutter.repo_name }}/static s3://{{ aws_s3_bucket_name }}/static/
+	aws s3 sync {{ cookiecutter.repo_name }}/static s3://{{ cookiecutter.aws_s3_bucket_name }}/static/
 
 # shortcuts for deploy to the production
 dp: deploy_production
