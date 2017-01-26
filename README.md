@@ -1,6 +1,6 @@
 # cookiecutter-django-herokuapp
 
-A [cookiecutter](https://github.com/audreyr/cookiecutter) template for Django 1.9+ / Python 3 only, that is *really* optimized for running on Heroku.
+A [cookiecutter](https://github.com/audreyr/cookiecutter) template for Django 1.10 / Python 3 only, that is *really* optimized for running on twelve-factor-app platforms (like Heroku or DigitalOcean).
 
 [![Build status](https://travis-ci.org/dulaccc/cookiecutter-django-herokuapp.svg?branch=master)](https://travis-ci.org/dulaccc/cookiecutter-django-herokuapp?branch=master)
 
@@ -11,7 +11,7 @@ I tried to be minimalistic, I mean no choice has been made concerning :
 - **the css library**, specify which one you want in the bower.json file
 - **external django apps**, I don't see the point to choose this for you ;)
 
-In fact the only choice made here is deploying on Heroku, well in fact deploying on a [Twelve-Factor App Plateform](http://12factor.net/).
+In fact the only choice made here is deploying on a [Twelve-Factor App Platform](http://12factor.net/).
 
 
 ## Requirements
@@ -23,7 +23,7 @@ This cookiecutter template uses features that exists only in cookiecutter 0.9.0 
 ---------
 
 - Python 3 only, sorry guys but I had to move on...
-- For [Django 1.9](https://docs.djangoproject.com/en/1.9/)
+- For [Django 1.10](https://docs.djangoproject.com/en/1.10/)
 - Heroku optimized stack
 - Gulp tasks to build the static files and support livereload
 - Static served by `whitenoise` from the django app (advice to setup a cache instance above like CloudFlare)
