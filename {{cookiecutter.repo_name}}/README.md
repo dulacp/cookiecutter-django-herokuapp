@@ -200,5 +200,5 @@ $ make cp
 
 ## Contact
 
-[Pierre Dulac](http://github.com/dulaccc)  
-[@dulaccc](https://twitter.com/dulaccc)
+[Pierre Dulac](http://github.com/dulacp)  
+[@\_dulacp](https://twitter.com/_dulacp)

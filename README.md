@@ -2,7 +2,7 @@
 
 A [cookiecutter](https://github.com/audreyr/cookiecutter) template for Django 1.10 / Python 3 only, that is *really* optimized for running on twelve-factor-app platforms (like Heroku or DigitalOcean).
 
-[![Build status](https://travis-ci.org/dulaccc/cookiecutter-django-herokuapp.svg?branch=master)](https://travis-ci.org/dulaccc/cookiecutter-django-herokuapp?branch=master)
+[![Build status](https://travis-ci.org/dulacp/cookiecutter-django-herokuapp.svg?branch=master)](https://travis-ci.org/dulacp/cookiecutter-django-herokuapp?branch=master)
 
 
 ## Concept
@@ -48,7 +48,7 @@ $ pip install cookiecutter
 Now run it against this repo.
 
 ```sh
-$ cookiecutter https://github.com/dulaccc/cookiecutter-django-herokuapp.git
+$ cookiecutter https://github.com/dulacp/cookiecutter-django-herokuapp.git
 ```
 
 You'll be prompted for some questions, answer them, then it will create a Django project for you.
